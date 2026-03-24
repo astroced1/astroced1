@@ -133,11 +133,11 @@ keymap = [
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "." ],       run = "follow",           desc = "Follow hovered symlink" },
-	{ on = [ "g", "y" ],       run = "cd $HOME/.config/yazi"},
-	{ on = [ "g", "f" ],       run = "cd $HOME/.config/fish"},
-	{ on = [ "g", "b" ],       run = "cd $HOME/.config/bspwm"},
-	{ on = [ "g", "s" ],       run = "cd $HOME/.config/sxhkd"},
-
+	{ on = [ "g", "y" ],       run = "cd $HOME/.config/yazi", desc = "/.config/yazi"},
+	{ on = [ "g", "f" ],       run = "cd $HOME/.config/fish", desc = "/.config/fish"},
+	{ on = [ "g", "b" ],       run = "cd $HOME/.config/bspwm", desc = "/.config/bspwm"},
+	{ on = [ "g", "s" ],       run = "cd $HOME/.config/sxhkd", desc = "/.config/sxhkd"},
+	{ on = [ "g", "B" ],       run = "cd /usr/bin", desc = "/usr/bin"},
 	
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },

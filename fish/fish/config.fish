@@ -28,13 +28,17 @@ alias ysi='yay -Si' #information on a package
 alias ysyu='yay -Syu'
 alias yq='yay -Q'
 
+# zoxide 
+alias zf='cd $(zoxide query -l | fzf)'
+
 # eza
 alias e="eza -xa --icons --group-directories-first $argv"
 alias e1='eza -Ta -L1 --icons --group-directories-first $argv'
 alias e2='eza -Ta -L2 --icons --group-directories-first $argv'
 alias e3='eza -Ta -L3 --icons --group-directories-first $argv' 
 alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
-    #to output as whole directory add '--absolute'
+alias es='eza -a --icons | fzf --preview 'bat --style=numbers --color=always {}'' #eza with search preview
+    #to output as whole directory add '--absolute
 
 # git
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME $argv'
