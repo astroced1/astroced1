@@ -26,12 +26,14 @@ alias ys='yay -S --needed'
 alias yss='yay -Ss'
 alias ysi='yay -Si' #information on a package
 alias ysyu='yay -Syu'
+alias yq='yay -Q'
 
 # eza
 alias e="eza -xa --icons --group-directories-first $argv"
-alias e1='eza -Ta -L1 --group-directories-first $argv'
-alias e2='eza -Ta -L2 --group-directories-first $argv'
-alias e3='eza -Ta -L3 --group-directories-first $argv' 
+alias e1='eza -Ta -L1 --icons --group-directories-first $argv'
+alias e2='eza -Ta -L2 --icons --group-directories-first $argv'
+alias e3='eza -Ta -L3 --icons --group-directories-first $argv' 
+alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
     #to output as whole directory add '--absolute'
 
 # git

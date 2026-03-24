@@ -22,6 +22,22 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     brightnessctl -d amdgpu_bl1 set 10%-
 
+# Increase volume
+XF86AudioRaiseVolume
+    pamixer -i 5
+
+# Decrease volume
+XF86AudioLowerVolume
+    pamixer -d 5
+
+# Mute/unmute
+XF86AudioMute
+    pamixer -t
+
+# Lock hotkey
+super + l
+	slock    
+
 #
 # bspwm hotkeys
 #
