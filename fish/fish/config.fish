@@ -30,7 +30,7 @@ alias ysi='yay -Si' #information on a package
 alias ysyu='yay -Syu'
 alias yq='yay -Q'
 
-# zoxide 
+# zoxide fzf
 alias zf='cd $(zoxide query -l | fzf)'
 
 # eza
@@ -67,12 +67,14 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME $argv'
 alias backup-dots='rsync -av --delete ~/.config/fish ~/.dotfiles/fish
 rsync -av --delete ~/.config/bspwm ~/.dotfiles/bspwm
 rsync -av --delete ~/.config/sxhkd ~/.dotfiles/sxhkd
-rsync -av --delete ~/.config/yazi ~/.dotfiles/yazi'
+rsync -av --delete ~/.config/yazi ~/.dotfiles/yazi
+rsync -av --delete ~/.local/bin ~/.dotfiles/bin'
 ###
 alias sync-dots=' rsync -av --delete ~/.config/fish ~/.dotfiles/fish
     rsync -av --delete ~/.config/bspwm ~/.dotfiles/bspwm
     rsync -av --delete ~/.config/sxhkd ~/.dotfiles/sxhkd
     rsync -av --delete ~/.config/yazi ~/.dotfiles/yazi
+    rsync -av --delete ~/.local/bin ~/.dotfiles/bin
     cd ~/.dotfiles
     git add .
     git commit -m "Sync updated configs"

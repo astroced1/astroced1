@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Unmounting NixOS..."
+sudo umount /mnt/nixos

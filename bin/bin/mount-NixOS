@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Mounting NixOS..."
+sudo mount /dev/nvme0n1p2 /mnt/nixos
