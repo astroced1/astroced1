@@ -10,6 +10,8 @@ alias c='clear'
 alias nm='nmtui'
 alias cpwd='pwd | xclip -selection clipboard' #copy working directory to clipboard
 alias chs='bat /home/lrosebrough/.config/fish/config.fish' # fish alias CHeatSheet
+alias hk='housekeeping.sh'
+
 # grit
 alias grap='grit add -p'
 alias grar='grit add -r'
