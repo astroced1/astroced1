@@ -7,9 +7,13 @@ super + Return
 	kitty
 
 # program launcher
-super + d
-	dmenu_run
+# super + d
+# 	dmenu_run
 
+# otter-launcher
+super + d
+	alacritty -e otter-launcher &
+	
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
