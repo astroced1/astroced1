@@ -9,7 +9,7 @@ alias y='yazi'
 alias c='clear'
 alias nm='nmtui'
 alias cpwd='pwd | xclip -selection clipboard' #copy working directory to clipboard
-
+alias chs='bat /home/lrosebrough/.config/fish/config.fish' # fish alias CHeatSheet
 # grit
 alias grap='grit add -p'
 alias grar='grit add -r'
@@ -39,6 +39,17 @@ alias e3='eza -Ta -L3 --icons --group-directories-first $argv'
 alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
 function es   # eza + fzf + open in micro
     set file (eza -1 -a --icons | fzf --preview 'test -d {} && eza -a {} || bat {}')
+    if test -n "$file"
+        if test -d "$file"
+            cd "$file"
+        else
+            $EDITOR "$file"
+        end
+    end
+end
+
+function ses # super es - shows ALL files and directories in CWD and either cd or opens text editor
+set file (fd . | fzf --preview 'test -d {} && eza -a {} || bat {}')
     if test -n "$file"
         if test -d "$file"
             cd "$file"
