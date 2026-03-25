@@ -8,8 +8,9 @@ alias m='micro'
 alias y='yazi'
 alias c='clear'
 alias nm='nmtui'
-alias cpwd='pwd | xclip -selection clipboard' #copy working directory to clipboard
+alias cpwd='pwd | xclip -selection clipboard' #CoPyWorkingDirectory to clipboard
 alias chs='bat /home/lrosebrough/.config/fish/config.fish' # fish alias CHeatSheet
+alias ds='df -h /' # checks DiskSpace
 alias hk='housekeeping.sh'
 
 # grit
@@ -26,7 +27,7 @@ alias up4='cd ../../../..'
 # yay 
 alias ys='yay -S --needed'
 alias yss='yay -Ss'
-alias ysi='yay -Si' #information on a package
+alias ysi='yay -Si' # Information on a package
 alias ysyu='yay -Syu'
 alias yq='yay -Q'
 
