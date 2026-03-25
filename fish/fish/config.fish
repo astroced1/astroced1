@@ -37,8 +37,16 @@ alias e1='eza -Ta -L1 --icons --group-directories-first $argv'
 alias e2='eza -Ta -L2 --icons --group-directories-first $argv'
 alias e3='eza -Ta -L3 --icons --group-directories-first $argv' 
 alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
-alias es='eza -a --icons | fzf --preview 'bat --style=numbers --color=always {}'' #eza with search preview
-    #to output as whole directory add '--absolute
+function es   # eza + fzf + open in micro
+    set file (eza -1 -a --icons | fzf --preview 'test -d {} && eza -a {} || bat {}')
+    if test -n "$file"
+        if test -d "$file"
+            cd "$file"
+        else
+            $EDITOR "$file"
+        end
+    end
+end
 
 # git
 alias dotfiles='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME $argv'
