@@ -1,8 +1,12 @@
 set -Ux EDITOR micro
 set -Ux VISUAL micro
 zoxide init fish | source
-starship init fish | source
+thefuck --alias | source
 
+# Spacefish config
+source  ~/.config/fish/conf.d/spacefish_config.fish
+
+###
 # general
 alias m='micro'
 alias y='yazi'
@@ -40,8 +44,18 @@ alias e1='eza -Ta -L1 --icons --group-directories-first $argv'
 alias e2='eza -Ta -L2 --icons --group-directories-first $argv'
 alias e3='eza -Ta -L3 --icons --group-directories-first $argv' 
 alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
-function es   # eza + fzf + open in micro
-    set file (eza -1 -a --icons | fzf --preview 'test -d {} && eza -a {} || bat {}')
+function es
+    # eza + fzf + open in micro with colored output
+    set file (eza -1 -a --icons | while read -l f
+        if test -d "$f"
+            # Blue for directories
+            printf "\033[34m%s\033[0m\n" "$f"
+        else
+            # Orange for files (bright yellow/orange)
+            printf "\033[38;5;214m%s\033[0m\n" "$f"
+        end
+    end | fzf --ansi --preview 'test -d {} && eza -a {} || bat {}')
+    
     if test -n "$file"
         if test -d "$file"
             cd "$file"
@@ -52,7 +66,15 @@ function es   # eza + fzf + open in micro
 end
 
 function ses # super es - shows ALL files and directories in CWD and either cd or opens text editor
-set file (fd . | fzf --preview 'test -d {} && eza -a {} || bat {}')
+set file (fd . | while read -l f
+    if test -d "$f"
+        # Blue for directories
+        printf "\033[34m%s\033[0m\n" "$f"
+    else
+        # Orange for files (bright yellow/orange)
+        printf "\033[38;5;214m%s\033[0m\n" "$f"
+    end
+end | fzf --ansi --preview 'test -d {} && eza -a {} || bat {}')
     if test -n "$file"
         if test -d "$file"
             cd "$file"
@@ -83,16 +105,16 @@ alias sync-dots=' rsync -av --delete ~/.config/fish ~/.dotfiles/fish
     cd /home/lrosebrough
     echo "Git Repo Synced..."'
 
+
 # function fish_greeting
 #     echo (set_color blue)(date +%d-%m-%Y) : (set_color yellow)(date +%T)
 # end
 
-function fish_greeting
-echo " _____ _     _ "    
-echo "|  ___(_)___| |__"  
-echo "| |_  | / __| '_ \ " 
-echo "|  _| | \__ \ | | |"
-echo "|_|   |_|___/_| |_|"                             
+# function fish_greeting
+# echo " _____ _     _ "    
+# echo "|  ___(_)___| |__"  
+# echo "| |_  | / __| '_ \ " 
+# echo "|  _| | \__ \ | | |"
+# echo "|_|   |_|___/_| |_|"                             
 
-end
 
