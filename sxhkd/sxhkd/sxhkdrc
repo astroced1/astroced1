@@ -13,6 +13,10 @@ super + Return
 # otter-launcher
 super + d
 	alacritty -e otter-launcher &
+
+# common app launcher 
+super + g ; {f,q,y,o}
+	{firefox,qutebrowser,freetube,onlyoffice-desktopeditors}	
 	
 # make sxhkd reload its configuration files:
 super + Escape
@@ -63,8 +67,8 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+# super + g
+# 	bspc node -s biggest.window
 
 #
 # state/flags
