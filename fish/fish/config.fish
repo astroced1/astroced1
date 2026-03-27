@@ -13,6 +13,7 @@ alias cpwd='pwd | xclip -selection clipboard' #CoPyWorkingDirectory to clipboard
 alias chs='bat /home/lrosebrough/.config/fish/config.fish' # fish alias CHeatSheet
 alias ds='df -h /' # checks DiskSpace
 alias hk='housekeeping.sh'
+alias iv='fzf --multi --print0 | xargs -0 sxiv -t' #ImageView
 
 # grit
 alias grap='grit add -p'
