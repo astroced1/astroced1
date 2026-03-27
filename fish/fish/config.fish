@@ -3,9 +3,6 @@ set -Ux VISUAL micro
 zoxide init fish | source
 thefuck --alias | source
 
-# Spacefish config
-source  ~/.config/fish/conf.d/spacefish_config.fish
-
 ###
 # general
 alias m='micro'
@@ -44,6 +41,10 @@ alias e1='eza -Ta -L1 --icons --group-directories-first $argv'
 alias e2='eza -Ta -L2 --icons --group-directories-first $argv'
 alias e3='eza -Ta -L3 --icons --group-directories-first $argv' 
 alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
+
+alias er1='eza -a --level=1 -R --absolute -1 --group-directories-first'
+alias er2='eza -a --level=2 -R --absolute -1 --group-directories-first'
+alias er3='eza -a --level=3 -R --absolute -1 --group-directories-first'
 function es
     # eza + fzf + open in micro with colored output
     set file (eza -1 -a --icons | while read -l f
@@ -105,16 +106,69 @@ alias sync-dots=' rsync -av --delete ~/.config/fish ~/.dotfiles/fish
     cd /home/lrosebrough
     echo "Git Repo Synced..."'
 
+# Long shit
+function ers1
+set file (
+    eza -a --level=1 -R --absolute -1 --group-directories-first | while read -l f
+        if test -d "$f"
+            # Blue for directories
+            printf "\033[34m%s\033[0m\n" "$f"
+        else
+            # Orange for files
+            printf "\033[38;5;214m%s\033[0m\n" "$f"
+        end
+    end | fzf --ansi --preview 'test -d {} && eza -a {} || bat {}'
+)
 
-# function fish_greeting
-#     echo (set_color blue)(date +%d-%m-%Y) : (set_color yellow)(date +%T)
-# end
+if test -n "$file"
+    if test -d "$file"
+        cd "$file"
+    else
+        $EDITOR "$file"
+    end
+end
+end
+###
+function ers2
+set file (
+    eza -a --level=2 -R --absolute -1 --group-directories-first | while read -l f
+        if test -d "$f"
+            # Blue for directories
+            printf "\033[34m%s\033[0m\n" "$f"
+        else
+            # Orange for files
+            printf "\033[38;5;214m%s\033[0m\n" "$f"
+        end
+    end | fzf --ansi --preview 'test -d {} && eza -a {} || bat {}'
+)
 
-# function fish_greeting
-# echo " _____ _     _ "    
-# echo "|  ___(_)___| |__"  
-# echo "| |_  | / __| '_ \ " 
-# echo "|  _| | \__ \ | | |"
-# echo "|_|   |_|___/_| |_|"                             
+if test -n "$file"
+    if test -d "$file"
+        cd "$file"
+    else
+        $EDITOR "$file"
+    end
+end
+end
+###
+function ers3
+set file (
+    eza -a --level=3 -R --absolute -1 --group-directories-first | while read -l f
+        if test -d "$f"
+            # Blue for directories
+            printf "\033[34m%s\033[0m\n" "$f"
+        else
+            # Orange for files
+            printf "\033[38;5;214m%s\033[0m\n" "$f"
+        end
+    end | fzf --ansi --preview 'test -d {} && eza -a {} || bat {}'
+)
 
-
+if test -n "$file"
+    if test -d "$file"
+        cd "$file"
+    else
+        $EDITOR "$file"
+    end
+end
+end

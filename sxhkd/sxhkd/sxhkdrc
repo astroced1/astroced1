@@ -160,10 +160,6 @@ super + f
 super + Shift + Return
 	kitty -e yazi
 
-#update packages - ses binary in /home/lrosebrough/.local/bin/update-system
-super + u
-    kitty -e update-system
-
 ###
 # Decrease color temperature (warmer)
 super + alt + ctrl + Down
