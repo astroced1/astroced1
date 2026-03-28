@@ -173,3 +173,6 @@ if test -n "$file"
     end
 end
 end
+
+function fish_greeting
+end

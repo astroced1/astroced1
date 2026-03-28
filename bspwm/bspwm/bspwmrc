@@ -15,7 +15,6 @@ bspc config automatic_scheme tiling
 bspc rule -a Alacritty state=floating
 
 # autostart
-sxhkd &
 picom --config $HOME/.config/picom/picom.conf &
 polybar &
 dunst &

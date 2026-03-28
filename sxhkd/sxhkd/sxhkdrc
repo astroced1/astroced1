@@ -75,7 +75,7 @@ super + y
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,shift + t,s,shift + f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -120,18 +120,23 @@ super + {_,shift + }{1-9,0}
 # preselect
 #
 
-# preselect the direction
-super + ctrl + {Left,Down,Up,Right}
-	bspc node -p {west,south,north,east}
-
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
+# Workspace / window movement (example)
+super + ctrl + Left
+    bspc node -f west
 
+super + ctrl + Down
+    bspc node -f south
+
+super + ctrl + Up
+    bspc node -f north
+
+super + ctrl + Right
+    bspc node -f east
+    
 # cancel the preselection for the focused desktop
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
@@ -149,7 +154,7 @@ super + alt + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-super + Control + {Left,Down,Up,Right}
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 #firefox
@@ -157,7 +162,7 @@ super + f
 	firefox
 
 #yazi
-super + Shift + Return
+super + shift + Return
 	kitty -e yazi
 
 ###
