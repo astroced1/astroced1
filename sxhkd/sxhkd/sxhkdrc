@@ -126,16 +126,16 @@ super + ctrl + {1-9}
 
 # Workspace / window movement (example)
 super + ctrl + Left
-    bspc node -f west
+    bspc node -p west
 
 super + ctrl + Down
-    bspc node -f south
+    bspc node -p south
 
 super + ctrl + Up
-    bspc node -f north
+    bspc node -p north
 
 super + ctrl + Right
-    bspc node -f east
+    bspc node -p east
     
 # cancel the preselection for the focused desktop
 super + ctrl + shift + space

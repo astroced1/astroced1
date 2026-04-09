@@ -14,6 +14,7 @@ alias chs='bat /home/lrosebrough/.config/fish/config.fish' # fish alias CHeatShe
 alias ds='df -h /' # checks DiskSpace
 alias hk='housekeeping.sh'
 alias iv='fzf --multi --print0 | xargs -0 sxiv -t' #ImageView
+alias sescrot='grim -g "$(slurp)" - | swappy -f -' #SElectiveSCReenShOT
 
 # grit
 alias grap='grit add -p'
@@ -93,12 +94,14 @@ alias backup-dots='rsync -av --delete ~/.config/fish ~/.dotfiles/fish
 rsync -av --delete ~/.config/bspwm ~/.dotfiles/bspwm
 rsync -av --delete ~/.config/sxhkd ~/.dotfiles/sxhkd
 rsync -av --delete ~/.config/yazi ~/.dotfiles/yazi
+rsync -av --delete ~/.config/mango ~/.dotfiles/mango
 rsync -av --delete ~/.local/bin ~/.dotfiles/bin'
 ###
 alias sync-dots=' rsync -av --delete ~/.config/fish ~/.dotfiles/fish
     rsync -av --delete ~/.config/bspwm ~/.dotfiles/bspwm
     rsync -av --delete ~/.config/sxhkd ~/.dotfiles/sxhkd
     rsync -av --delete ~/.config/yazi ~/.dotfiles/yazi
+    rsync -av --delete ~/.config/mango ~/.dotfiles/mango
     rsync -av --delete ~/.local/bin ~/.dotfiles/bin
     cd ~/.dotfiles
     git add .
