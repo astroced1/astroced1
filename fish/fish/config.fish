@@ -1,11 +1,12 @@
-set -Ux EDITOR micro
-set -Ux VISUAL micro
+set -Ux EDITOR nvim
+set -Ux VISUAL nvim
 zoxide init fish | source
 thefuck --alias | source
 
 ###
 # general
 alias m='micro'
+alias v='nvim'
 alias y='yazi'
 alias c='clear'
 alias nm='nmtui'
@@ -14,12 +15,23 @@ alias chs='bat /home/lrosebrough/.config/fish/config.fish' # fish alias CHeatShe
 alias ds='df -h /' # checks DiskSpace
 alias hk='housekeeping.sh'
 alias iv='fzf --multi --print0 | xargs -0 sxiv -t' #ImageView
+alias zc='cd; clear'
 alias sescrot='grim -g "$(slurp)" - | swappy -f -' #SElectiveSCReenShOT
+alias clman='cliphist list | fzf | cliphist decode | wl-copy' #fzf CLipboardMANager
+alias battery='acpi'
 
 # grit
 alias grap='grit add -p'
 alias grar='grit add -r'
 alias grad='grit add'
+
+# nb
+# alias nba
+# alias nbd
+# alias nbe
+# alias nbls
+# alias nbb
+# alias nbs
 
 # ls
 alias lsa='ls -a'
@@ -43,7 +55,6 @@ alias e1='eza -Ta -L1 --icons --group-directories-first $argv'
 alias e2='eza -Ta -L2 --icons --group-directories-first $argv'
 alias e3='eza -Ta -L3 --icons --group-directories-first $argv' 
 alias eu='eza -Ta -L2 --icons --group-directories-first .. $argv'
-
 alias er1='eza -a --level=1 -R --absolute -1 --group-directories-first'
 alias er2='eza -a --level=2 -R --absolute -1 --group-directories-first'
 alias er3='eza -a --level=3 -R --absolute -1 --group-directories-first'
@@ -149,7 +160,7 @@ set file (
 if test -n "$file"
     if test -d "$file"
         cd "$file"
-    else
+      else
         $EDITOR "$file"
     end
 end
